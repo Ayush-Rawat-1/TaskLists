@@ -1,0 +1,26 @@
+<div class="box">
+    <div class="row">
+        <h3 id="ai-h3">Generate AI response</h3>
+        <button onclick="genAI()" id="btn-ai"><i class="fa-solid fa-rotate"></i></button>
+    </div>
+    <div id="aiResponse">
+        <p>
+            Click <i class="fa-solid fa-rotate"></i> to Generate AI response
+        </p>
+    </div>
+</div>
+</main>
+<div class="overlay" id="overlay"></div>
+<div class="loaderContainer">
+    <div id="loader"></div>
+</div>
+<footer>
+    <p>Copyright @ <%= year %></p>
+</footer>
+<%if(today){%>
+    <script src="/javascripts/scriptToday.js"></script>
+<%}else{%>
+    <script src="/javascripts/scriptWork.js"></script>
+<% } %>
+</body>
+</html>

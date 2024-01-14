@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<!-- Created By CodingNepal -->
+<html lang="en" dir="ltr">
+   <head>
+      <meta charset="utf-8">
+      <title>Task Lists Login</title>
+      <link rel="stylesheet" href="/styles/login.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+   </head>
+   <body>
+       <div>
+          <ul>
+              <% if(locals.errors){ %>
+                  <% errors.forEach((err)=>{ %>
+                      <li><%= err.message %></li>
+                  <% }) %>
+              <% } %>
+          </ul>
+       </div>
+      <div class="content">
+         <div class="text">
+            <%= sign %> form
+         </div>
+         <form action="/<%= sign %>" method="POST">
+            <div class="field">
+               <input type="email" placeholder="Email" name="email" required>
+               <span class="fas fa-envelope"></span>
+            </div>
+            <div class="field">
+               <input type="password" placeholder="Password" name="password" required>
+               <span class="fas fa-lock"></span>
+            </div>
+            <% if(sign === "login"){ %>
+                <button type="submit">Sign in</button>
+            <% } else{ %>
+                <button type="submit">Sign up</button>
+            <% } %>
+            <div class="sign-up">
+                <% if(sign === "login"){ %>
+                    Not a member?
+                    <a href="/register">sign-up now</a>
+                <% } else{ %>
+                    Already a member?
+                    <a href="/">sign-in now</a>
+                <% } %>
+            </div>
+            <hr>
+            <div class="field" id="google">
+                <a href="/auth/google" role="button">
+                    <i class="fab fa-google"></i>
+                    Sign In with Google
+                </a>
+            </div>
+         </form>
+      </div>
+   </body>
+</html>
